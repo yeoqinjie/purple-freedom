@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style2.css">
+    </head>
+    <body>
+        <h1 id="header1" class="special-font" style="color: green; font-size: 100px;">Hello</h1>
+
+        <div class="row">
+            <div class="col" id="col1">
+                <a href="#" onclick="changeAlign()">Column 1</a>
+            </div>
+            <div class="col" id="col2">
+                <input type="text" id="input1" value="Your Name" required>
+                <p>
+                    This is a paragraph
+                </p>
+            </div>
+            <div class="col bg" id="col3">
+                Column 3
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script>
+            var header1 = document.getElementById('header1');
+            var input1 = document.getElementById('input1');
+            
+            function changeAlign() {
+                var name = input1.value;
+                console.log(name);
+
+                if (name == 'Your Name') {
+                    header1.innerHTML = "Please key in your name";
+                    header1.style.backgroundColor = "yellow";
+                    header1.style.color = "red";
+                } else {
+                    header1.innerHTML = "Hello " + name;
+                    header1.style.backgroundColor = "transparent";
+                    header1.style.color = "black";
+                }
+            }
+        </script>
+    </body>
+</html>
