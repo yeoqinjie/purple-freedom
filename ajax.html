@@ -24,7 +24,7 @@
                 },
                 success: function( result ) {
                     console.log(result);
-                    $( "#weather-temp" ).html( "<strong>" + (result.main.temp - 273) + "</strong>" );
+                    $( "#weather-temp" ).append( "<strong>" + (result.main.temp - 273) + "</strong><br/><br/>" );
                 }
             });
         }
