@@ -3,7 +3,7 @@
     <head>
     </head>
     <body>
-        <input type="text" id="city">
+        <input type="text" id="city" placeholder="City">
         <button onclick="getTemp()">Get Temperature</button>
 
         <div id="weather-temp"></div>
@@ -21,10 +21,13 @@
                 },
                 data: {
                     q: city,
+                    units: "metric",
                 },
                 success: function( result ) {
-                    console.log(result);
-                    $( "#weather-temp" ).append( "<strong>" + (result.main.temp - 273) + "</strong><br/><br/>" );
+                    $( "#weather-temp" ).append( "<strong>" + city + ": " + (result.main.temp) + " degrees</strong><br/><br/>" );
+                }, 
+                error: function( result ) {
+                    $( "#weather-temp" ).append( "<strong>" + (result.responseJSON.message) + "</strong><br/><br/>" );
                 }
             });
         }
