@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <input type="text" id="city">
+        <button onclick="getTemp()">Get Temperature</button>
+
+        <div id="weather-temp"></div>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <script>
+        function getTemp() {
+            var city = $('#city').val();
+            $.ajax({
+                url: "https://community-open-weather-map.p.rapidapi.com/weather",
+                headers: {
+                    "X-RapidAPI-Host": "community-open-weather-map.p.rapidapi.com",
+                    "X-RapidAPI-Key": "0ee10ef0f5msh638624ed54dd5f5p118168jsn2a9389ca69b1",
+                },
+                data: {
+                    q: city,
+                },
+                success: function( result ) {
+                    console.log(result);
+                    $( "#weather-temp" ).html( "<strong>" + (result.main.temp - 273) + "</strong>" );
+                }
+            });
+        }
+        </script>
+    </body>
+</html>
