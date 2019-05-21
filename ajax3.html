@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <h1 id="title"></h1>
+        <h2 id="product"></h2>
+        <div id="price">$</div>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script>
+            $.ajax({
+                url: "content.json",
+                success: function( result ) {
+                    console.log(result)
+                    $( "#title" ).append( result.title );
+                    $( "#product" ).append( result.product.title );
+                    $( "#price" ).append( result.product.price );
+
+
+                },
+            });
+        </script>
+    </body>
+</html>
