@@ -3,22 +3,28 @@
     <head>
     </head>
     <body>
+        <a href="#" onclick="getProduct(1)">Get Product 1</a>
+        <a href="#" onclick="getProduct(2)">Get Product 2</a>
+        <a href="#" onclick="getProduct(3)">Get Product 3</a>
+
         <h1 id="title"></h1>
         <h2 id="product"></h2>
-        <div id="price">$</div>
+        <div id="price"></div>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script>
+        function getProduct(id) {
+            var url = "content" + id + ".json"
             $.ajax({
-                url: "content.json",
+                url: url,
                 success: function( result ) {
                     console.log(result)
-                    $( "#title" ).append( result.title );
-                    $( "#product" ).append( result.product.title );
-                    $( "#price" ).append( result.product.price );
-
-
+                    $( "#title" ).html( result.title );
+                    $( "#product" ).html( result.product.title );
+                    $( "#price" ).html( "$" + result.product.price );
                 },
             });
+        }
+            
         </script>
     </body>
 </html>

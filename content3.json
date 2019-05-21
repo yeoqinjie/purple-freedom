@@ -1,0 +1,13 @@
+{
+    "key": "value",
+    "error": "errorvalue",
+    "title": "Good Day World",
+    "description": "This is the description", 
+    "product": {
+        "title": "Product 100",
+        "id": 3,
+        "price": 2000,
+        "description": "This is the product description",
+        "url": "https://google.com"
+    }
+}
