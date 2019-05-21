@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <div id="content"></div>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script>
+            $.ajax({
+                url: "content.html",
+                success: function( result ) {
+                    $( "#content" ).append( result );
+                },
+            });
+        </script>
+    </body>
+</html>
