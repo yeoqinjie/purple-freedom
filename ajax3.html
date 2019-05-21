@@ -10,8 +10,62 @@
         <h1 id="title"></h1>
         <h2 id="product"></h2>
         <div id="price"></div>
+
+        <p>lorem ipsum</p>
+        <p>lorem ipsum2</p>
+        <p>lorem ipsum3</p>
+        <p>lorem ipsum4</p>
+
+        <table>
+            <tr>
+                <td>Cell 1</td>
+            </tr>
+            <tr>
+                <td>Cell 2</td>
+            </tr>
+            <tr>
+                <td>Cell 3</td>
+            </tr>
+            <tr>
+                <td>Cell 4</td>
+            </tr>
+            <tr>
+                <td>Cell 5</td>
+            </tr>
+            <tr>
+                <td>Cell 6</td>
+            </tr>
+        </table>
+
+        <a href="#" id="totop">Click to Top</a>
+
+        <a href="https://www.google.com" id="disable">Google</a>
+
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script>
+            //IU 8 
+            if (jQuery) {
+                console.log('loaded')
+            }
+            
+            $('p').on("click", function () {
+                $(this).hide()
+            })
+            .on("mouseover", function(){
+                $(this).html('Hover')
+            })
+
+            $('#totop').on('click', function () {
+                $(window).scrollTop();
+            })
+            // Question 2.3
+            $('tr:not(:first)').remove();
+            // Question 3.1
+            $('#disable').on("click", function(e) {
+                e.preventDefault();
+            })
+
+
         function getProduct(id) {
             var url = "content" + id + ".json"
             $.ajax({
@@ -23,6 +77,10 @@
                     $( "#price" ).html( "$" + result.product.price );
                 },
             });
+
+
+
+            
         }
             
         </script>
